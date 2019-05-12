@@ -1,0 +1,31 @@
+version: "3"
+services:
+  movies-service-db:
+    image: postgres
+    enviroment:
+      POSTGRES_DB: movies
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  movies-service:
+    build: ./movies-service
+    command: npm start
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./movies-service:/cinema-api/movies-service
+    depends_on:
+      - movies_service_db
+  api-gateway:
+    build: ./api-gateway
+    command: npm start
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api-gateway:/cinema-api/api-gateway
+    depends_on:
+      - movies_service
+      - movies_service_db
