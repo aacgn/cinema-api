@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { MoviesService } from "../services/movies";
+import { MoviesService } from "../services/movies.service";
 /**
  * @namespace Controllers
  * @class MoviesController

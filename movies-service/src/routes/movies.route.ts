@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { MoviesController } from "../controllers/movies";
+import { MoviesController } from "../controllers/movies.controller";
 /**
  * @namespace Routes
  * @class MoviesRouter
