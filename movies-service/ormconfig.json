@@ -1,6 +1,7 @@
 {
+    "name": "movies",
     "type": "postgres",
-    "host": "database",
+    "host": "movies-service-db",
     "port": 5432,
     "username": "postgres",
     "password": "postgres",
