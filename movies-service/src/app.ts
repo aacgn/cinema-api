@@ -1,6 +1,8 @@
-import * as Express from 'express';
+import "reflect-metadata";
 import { MoviesRouter } from './routes/movies.route';
 import DatabaseConfig from "./config/database.config";
+import * as Express from 'express';
+import * as bodyParser from 'body-parser';
 
 class MoviesService {
     public app: Express.Application;
@@ -20,8 +22,12 @@ class MoviesService {
     }
 
     private async _config(): Promise<void> {
-        //Connecting to database
+        // Connecting to database
         await DatabaseConfig.connect();
+
+        // Allowing body parser JSON
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: false }));
 
         // Routing
         this.app.use('/movies', MoviesRouter());

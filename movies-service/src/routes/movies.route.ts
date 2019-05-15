@@ -8,6 +8,7 @@ export function MoviesRouter(): Router {
     const router = Router();
 
     router.get("/", MoviesController.getMovies);
+    router.post("/", MoviesController.addMovie);
 
     return router;
 }
