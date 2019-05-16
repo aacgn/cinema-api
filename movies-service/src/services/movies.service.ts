@@ -1,5 +1,5 @@
-import { Movie } from "../entities/movie.entity";
-import DatabaseConfig from "../config/database.config";
+import { Movie } from '../entities/movie.entity';
+import DatabaseConfig from '../config/database.config';
 
 /**
  * @namespace Services

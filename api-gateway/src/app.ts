@@ -1,12 +1,10 @@
-import 'reflect-metadata';
-import { MoviesRouter } from './routes/movies.route';
-import DatabaseConfig from './config/database.config';
 import * as Express from 'express';
 import * as bodyParser from 'body-parser';
+import { MoviesRouter } from './routes/movies.route';
 
-class MoviesService {
+class ApiGateway {
     public app: Express.Application;
-    public PORT = '8081';
+    public PORT = '8080';
 
     constructor() {
         this.app = Express();
@@ -14,7 +12,7 @@ class MoviesService {
     }
 
     public async start() {
-        console.log(`Service movies_service started.`);
+        console.log(`API gateway started.`);
 
         this.app.listen(this.PORT, () => {
             console.log(`Server listening in http://localhost:${this.PORT}`);
@@ -22,9 +20,6 @@ class MoviesService {
     }
 
     private async _config(): Promise<void> {
-        // Connecting to database
-        await DatabaseConfig.connect();
-
         // Allowing body parser JSON
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,4 +30,4 @@ class MoviesService {
 
 }
 
-new MoviesService().start();
+new ApiGateway().start();

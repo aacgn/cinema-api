@@ -19,3 +19,12 @@ services:
       - ./movies-service:/cinema-api/movies-service
     depends_on:
       - movies-service-db
+  api-gateway:
+    build: ./api-gateway
+    command: npm start
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api-gateway:/cinema-api/api-gateway
+    depends_on:
+      - movies-service

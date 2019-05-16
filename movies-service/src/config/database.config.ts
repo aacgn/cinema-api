@@ -1,4 +1,4 @@
-import { createConnection, getRepository, Repository, ObjectType, EntitySchema } from "typeorm";
+import { createConnection, getRepository, Repository, ObjectType, EntitySchema } from 'typeorm';
 /**
 * @namespace Config
 * @class DatabaseConfig
