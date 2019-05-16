@@ -1,0 +1,59 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Cinema API",
+        "description": "This is a sample cinema schema. ",
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "tags": [{
+        "name": "movies",
+        "description": "Everything about movies service"
+    }],
+    "schemes": ["http"],
+    "paths": {
+        "/api/movies": {
+            "get": {
+                "operationId": "getMovies",
+                "tags": ["movies"],
+                "summary": "Find all movies in the database",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {}
+            },
+            "post": {
+                "operationId": "addMovies",
+                "tags": ["movies"],
+                "summary": "Creates a new movie in the database",
+                "description": "",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Movies object that needs to be added to the store",
+                    "required": false,
+                    "schema": {
+                        "$ref": "#/definitions/Movie"
+                    }
+                }],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "Movie": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

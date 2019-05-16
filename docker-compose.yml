@@ -12,7 +12,7 @@ services:
       - "5435:5432"
   movies-service:
     build: ./movies-service
-    command: npm start
+    command: npm run start:dev
     ports:
       - "8081:8081"
     volumes:
@@ -21,7 +21,7 @@ services:
       - movies-service-db
   api-gateway:
     build: ./api-gateway
-    command: npm start
+    command: npm run start:dev
     ports:
       - "8080:8080"
     volumes:
